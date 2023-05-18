@@ -58,3 +58,41 @@ This histogram shows the distribution of KillsTeamContribution column from the d
 Does that means that match sylas plays really well and carries the team? Apparently not, Since mostly winning games ends with each player having at least some kills and contributions, that implies the team advantage is large enough where everyone has a chance to get a kill. But for the 100% contribution kills in this case, mostly it implies that the team has only 1 to 2 kills in total, and all kills are done by Sylas, thus it doesn't give any useful infos to represents Sylas carries the team, but saying Sylas at least kill someone in that match.
 
 
+Then lets see the distribution of deaths contribution of Sylas in all matches. Since  we all know that death and kill are opposite, what we pursue are more kills and fewer deaths, so in order to be consistent with the above, I changed the numbers of death from positive to negative in the distribution.
+
+<iframe src="assets/Univariate Analysis-2.html" width=800 height=600 frameBorder=0></iframe>
+
+This histogram shows the distribution of DeathsTeamContribution column from the dataset. The trend from this histogram shows that Sylas are mostly takes 0-0.3 proportions of deaths in whole team, and most of them never dead once in a game. Since a game consists only 5 players, averagely each players contributes 0.2, thus Sylas player mostly takes less proportion of deaths in team.
+
+
+Finally, lets look at the distribution of position of Sylas player will choose.
+
+<iframe src="assets/Univariate Analysis-3.html" width=800 height=600 frameBorder=0></iframe>
+
+This plot shows that mostly Sylas will play mid role, and sometimes it will be chosed as top, but seldom on other lanes, thus my analysis will mainly focus on analyzing data from mid players only, since they represents the most common Sylas performance in general. 
+
+#### Bivariate Analysis
+
+Since we are looking for the best Sylas player, and League of Legends is a competitive game, and the result is determined by the team's victory or defeat, so the winning rate of sylas will always reflect some part of his performance. 
+
+Firstly, lets look at the relationship between result and KillsTeamContribution.
+
+<iframe src="assets/Bivariate Analysis-1.html" width=800 height=600 frameBorder=0></iframe>
+
+The conditional distribution above shows that the shape of both win and lose looks similar, but the distribution of lose is more flatter than that of win. This implies that when winning the game, sylas player's contribution in teamkills are more concentrated in the range of 0.2 to 0.5, which means their contribution are more stablized when winning. Meanwhile when losing the game, sylas player's contribution in teamkills are quite randomly distributed. This implies me that maybe KillsTeamContribution cannot be the only variables to reflect their performance.
+
+
+Then, lets look at the relationship between KillsTeamContribution and DeathsTeamContribution
+
+<iframe src="assets/Bivariate Analysis-2.html" width=800 height=600 frameBorder=0></iframe>
+
+This scatterplot shows a uniform arrangment of dots in the plot. There is no clear best fit line shown in the plot, and since dots are arrange uniformly, we can say the relationship between KillsTeamContribution and DeathsTeamContribution are weak.
+
+
+Finally, lets see the relationship between golddiffat15 and KillsTeamContribution
+
+<iframe src="assets/Bivariate Analysis-3.html" width=800 height=600 frameBorder=0></iframe>
+
+This scatterplot shows a weak positive relationship between KillsTeamContribution and golddiffat15. Even we the dots in the plot are still separated and not concentrated on one exact line, but the trend is much more clear than preivous scatter plot between kill and death, thus we can start evaluating the gold difference at 15mins as one of performance that correlates to kills contribution.
+
+#### Interesting Aggregates
