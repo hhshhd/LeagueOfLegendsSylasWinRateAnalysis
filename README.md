@@ -12,29 +12,29 @@ The raw dataset has 149400 rows in total, I will choose ['gameid', 'position', '
 
 'gameid': the id of each game/match. Each 'gameid' corresponds to up to 12 rows – one for each of the 5 players on both teams and 2 containing summary data for the two teams.
 
-'position': the role of the player in each match (top,jng, mid, bot, sup)
+| 'position' | the role of the player in each match (top,jng, mid, bot, sup) |
 
-'playername': the name of the player
+| 'playername' | the name of the player |
 
-'playerid': the id of the player
+| 'playerid' | the id of the player |
 
-'teamid': the id of the team
+| 'teamid' | the id of the team |
 
-'champion': the hero the player selected of that match
+| 'champion' | the hero the player selected of that match |
 
-'result': WIN/LOSE (1 represents win in raw data)
+| 'result' | WIN/LOSE (1 represents win in raw data) |
 
-'kills': number of kills in the match
+| 'kills' | number of kills in the match |
 
-'deaths': number of deaths in the match
+| 'deaths' | number of deaths in the match |
 
-'assists': number of assists(contribution in kills but not the killer) in the match
+| 'assists' | number of assists(contribution in kills but not the killer) in the match |
 
-'teamkills': number of total kills of the team in the match
+| 'teamkills' | number of total kills of the team in the match |
 
-'teamdeaths': number of total deaths of the team in the match
+| 'teamdeaths' | number of total deaths of the team in the match |
 
-'golddiffat15': Average gold difference at 15 minutes
+| 'golddiffat15' | Average gold difference at 15 minutes |
 
 
 
@@ -42,4 +42,15 @@ The raw dataset has 149400 rows in total, I will choose ['gameid', 'position', '
 | ----------- | ----------- |
 | 'gameid | the id of each game/match. Each 'gameid' corresponds to up to 12 rows – one for each of the 5 players on both teams and 2 containing summary data for the two teams. |
 | Paragraph | Text |
-
+| 'position' | the role of the player in each match (top,jng, mid, bot, sup) |
+| 'playername' | the name of the player |
+| 'playerid' | the id of the player |
+| 'teamid' | the id of the team |
+| 'champion' | the hero the player selected of that match |
+| 'result' | WIN/LOSE (1 represents win in raw data) |
+| 'kills' | number of kills in the match |
+| 'deaths' | number of deaths in the match |
+| 'assists' | number of assists(contribution in kills but not the killer) in the match |
+| 'teamkills' | number of total kills of the team in the match |
+| 'teamdeaths' | number of total deaths of the team in the match |
+| 'golddiffat15' | Average gold difference at 15 minutes |
