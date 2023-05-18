@@ -58,6 +58,10 @@ This histogram shows the distribution of KillsTeamContribution column from the d
 Does that means that match sylas plays really well and carries the team? Apparently not, Since mostly winning games ends with each player having at least some kills and contributions, that implies the team advantage is large enough where everyone has a chance to get a kill. But for the 100% contribution kills in this case, mostly it implies that the team has only 1 to 2 kills in total, and all kills are done by Sylas, thus it doesn't give any useful infos to represents Sylas carries the team, but saying Sylas at least kill someone in that match.
 
 
+
+
+
+
 Then lets see the distribution of deaths contribution of Sylas in all matches. Since  we all know that death and kill are opposite, what we pursue are more kills and fewer deaths, so in order to be consistent with the above, I changed the numbers of death from positive to negative in the distribution.
 
 <iframe src="assets/Univariate Analysis-2.html" width=800 height=600 frameBorder=0></iframe>
