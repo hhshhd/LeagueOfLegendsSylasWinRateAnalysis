@@ -8,7 +8,7 @@ The data set I am going to study is the game data of professional players in var
 
 So my question is: **Does best Sylas players and remained Sylas players have similar distribution of difference in Kills contributions and Deaths Contributions?**
 
-The raw dataset has 149400 rows in total, I will choose ['gameid', 'position', 'playername', 'playerid', 'teamid', 'champion', 'result', 'kills', 'deaths', 'assists',  'teamkills', 'teamdeaths', 'golddiffat15'] as my columns relevant to my question.
+The raw dataset has **149400** rows in total, I will choose ['gameid', 'position', 'playername', 'playerid', 'teamid', 'champion', 'result', 'kills', 'deaths', 'assists',  'teamkills', 'teamdeaths', 'golddiffat15'] as my columns relevant to my question.
 
 | Column_Name | Description |
 | ----------- | ----------- |
@@ -26,3 +26,14 @@ The raw dataset has 149400 rows in total, I will choose ['gameid', 'position', '
 | 'teamkills' | number of total kills of the team in the match |
 | 'teamdeaths' | number of total deaths of the team in the match |
 | 'golddiffat15' | Average gold difference at 15 minutes |
+
+### Cleaning and EDA
+#### Data Cleaning
+
+First we need to filter the rows with only Sylas players contained, Since rows in the raw data has two types of infos, one is for single player and another is for team stats, it seems like we need to filtered out all rows represents team stats first. However, since all rows with team stats has NaN in champion stats, we only need to filter out all rows with values in champion columns that is not 'Sylas'. And also fill all missing values with NaN first.
+
+Then we need to create some new columns for future analysis, we need KillsTeamContribution and DeathsTeamContribution to replace current columns of kills, deaths, teamkills, teamdeaths. Since KillsTeamContribution and DeathsTeamContribution can represents the team contribution in each match, thus it will be reasonable to compare other players data in kills and deaths. Since there are matches where one team overwhelmed the other because of the gap in strength, thus the total teams kills will be really high, thus single player might had really high kills data with really poor performance.
+
+And since some players might got no kills in a single match but lots of assists, I choose to count assists as 0.2 kills in calculations for avoiding bunches of zeros in calculations.
+
+At the end, we will replace the value in column "result" from 0/1 to boolean, since 1/0 might be confused for reading. The cleaned data is shown below.
