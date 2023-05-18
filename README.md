@@ -122,4 +122,50 @@ In general, There should not be any NMAR in this data set, because each data is 
 
 #### Missingness Dependency
 
+In this part, I choose 'monsterkillsownjungle' to analyze, and perform permutation tests to analyze the dependency of the missingness of this column on other columns. I choose 'league' and 'side' as columns to analyze the dependency of missingness with "monsterkillsownjungle".
 
+|   monsterkillsownjungle | league   | side   |
+|------------------------:|:---------|:-------|
+|                     nan | LCK CL   | Blue   |
+|                     nan | LCK CL   | Blue   |
+|                     nan | LCK CL   | Blue   |
+|                     nan | LCK CL   | Blue   |
+|                     nan | LCK CL   | Blue   |
+
+Verifying that monsterkillsownjungle in lol2022_missingness
+
+Each row of lol2022_missingness belongs to one of two groups:
+
+Group 1: 'monsterkillsownjungle' is missing.
+
+Group 2: 'monsterkillsownjungle' is not missing.
+
+|   monsterkillsownjungle | league   | side   | monsterkillsownjungle_missing   |
+|------------------------:|:---------|:-------|:--------------------------------|
+|                     nan | LCK CL   | Blue   | True                            |
+|                     nan | LCK CL   | Blue   | True                            |
+|                     nan | LCK CL   | Blue   | True                            |
+|                     nan | LCK CL   | Blue   | True                            |
+|                     nan | LCK CL   | Blue   | True                            |
+
+Comparing null and non-null 'monsterkillsownjungle' distributions for 'side'
+
+|   monsterkillsownjungle_missing = False |   monsterkillsownjungle_missing = True |
+|----------------------------------------:|---------------------------------------:|
+|                                     0.5 |                                    0.5 |
+|                                     0.5 |                                    0.5 |
+
+The two columns look exactly same, which is evidence that 'monsterkillsownjungle_missing''s missingness does not depend on 'side', But i will run a permutation test later to prove that again.
+
+<iframe src="assets/Missingness-1.html" width=800 height=600 frameBorder=0></iframe>
+
+To measure the "distance" between two categorical distributions, we use the total variation distance as test statistic. By applying permutation testing to run 500 shuffled samples, empirical distribution of the test statistic along with the observed statistic is shown below.
+
+<iframe src="assets/Missingness-2.html" width=800 height=600 frameBorder=0></iframe>
+
+`np.mean(np.array(tvds) >= observed_tvd)`
+By calculating we get the p value as 1.0 . We fail to reject the null.
+
+Recall, the null stated that the distribution of 'side' when 'monsterkillsownjungle_missing' is missing is the same as the distribution of 'side' when 'monsterkillsownjungle_missing' is not missing.
+
+**Hence, we conclude that the missingness in the 'monsterkillsownjungle_missing' column is not dependent on 'side'.**
