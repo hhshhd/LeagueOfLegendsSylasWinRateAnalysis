@@ -58,10 +58,6 @@ This histogram shows the distribution of KillsTeamContribution column from the d
 Does that means that match sylas plays really well and carries the team? Apparently not, Since mostly winning games ends with each player having at least some kills and contributions, that implies the team advantage is large enough where everyone has a chance to get a kill. But for the 100% contribution kills in this case, mostly it implies that the team has only 1 to 2 kills in total, and all kills are done by Sylas, thus it doesn't give any useful infos to represents Sylas carries the team, but saying Sylas at least kill someone in that match.
 
 
-
-
-
-
 Then lets see the distribution of deaths contribution of Sylas in all matches. Since  we all know that death and kill are opposite, what we pursue are more kills and fewer deaths, so in order to be consistent with the above, I changed the numbers of death from positive to negative in the distribution.
 
 <iframe src="assets/Univariate Analysis-2.html" width=800 height=600 frameBorder=0></iframe>
@@ -100,3 +96,30 @@ Finally, lets see the relationship between golddiffat15 and KillsTeamContributio
 This scatterplot shows a weak positive relationship between KillsTeamContribution and golddiffat15. Even we the dots in the plot are still separated and not concentrated on one exact line, but the trend is much more clear than preivous scatter plot between kill and death, thus we can start evaluating the gold difference at 15mins as one of performance that correlates to kills contribution.
 
 #### Interesting Aggregates
+
+From previous Bivariate Analysis we can see that use win and lose as categorical variables is hard to find relationship with other potential variables. So we will start grouping rows from each game to each player's stats, with winning rates as new elements representing result.
+
+Since we need to calculate the winning rate, we will use 0,1 to represent result instead of lose/win.
+
+And as only winning rate might be biased, so I merge the number of games for each player in the new column "NumOfGames".
+
+|   WinningRate |   KillsTeamContribution |   DeathsTeamContribution |   golddiffat15 |   NumOfGames |
+|--------------:|------------------------:|-------------------------:|---------------:|-------------:|
+|      0.916667 |                0.33354  |                 0.167231 |        319.917 |           12 |
+|      0        |                0.282222 |                 0.289216 |       -178.5   |            2 |
+|      1        |                0.2      |                 0.181818 |       -682     |            1 |
+|      1        |                0.481818 |                 0.2      |       2339     |            1 |
+|      1        |                0.4      |                 0.222222 |       -112     |            1 |
+
+In this case we are using playerid instead of playername as index is that playerid is always unique, but player might change their playername and two playername might be same, so to use the unique key as index, I will use playerid here. At the end finding the best player, I'll use his/her id to track back their current name as result.
+
+This group table consists each players winning rate, num of games, and other stats with average value among all games. This will help us in future to dig in which player has the best performance on average, instead of using previous table that consists all each games stats, cannot shows how players performances if they have more than one games among 2022 matches.
+
+### Assessment of Missingness
+#### NMAR Analysis
+
+In general, There should not be any NMAR in this data set, because each data is the content of game settlement statistics in each battle, and all data will not involve any player's privacy and personal tendencies, and should be fully transparent. However, because different leagues (different regions) have different data statistics preferences and tactical biases, there may be situations where some leagues will prefer to count some detailed statistics and some leagues will not. For example, "monsterkillsownjungle" and "monsterkillsenemyjungle" columns are collected only by several leagues, including LPL, LEC, LDL, etc. This is because these leagues has their own system of analyzing the data. Therefore, they will collect more data that is more biased towards the style of its competition area in terms of data processing and collection, just like the difference in the number of jungle monsters here is the same since they pays more attention to the tactical arrangement of the jungle area and the jungle position. Thus these leagues, like LPL and LEC, are good at gaining an advantage in the jungle, they will be more inclined to collect relevant information and display it to show their strength. And this also leads to potential NMAR, where other leagues will not collect these data because their inconfidence to the tactical arrangement of the jungle position, thus Resulting in potential NMARs appearing in the data collection. Similar includes things like baron resource scrambles and others.
+
+#### Missingness Dependency
+
+
