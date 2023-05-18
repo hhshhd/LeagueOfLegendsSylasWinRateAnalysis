@@ -53,6 +53,7 @@ First lets see the distribution of kills contribution of Sylas in all matches.
 
 <iframe src="assets/Univariate Analysis-1.html" width=800 height=600 frameBorder=0></iframe>
 
+
 This histogram shows the distribution of KillsTeamContribution column from the dataset. The trend from this histogram shows that the shape of Sylas kills contribution is likely a normal distribution, and most data concentrated in the range 0.3 to 0.5. Since a game consists only 5 players, averagely each players contributes 0.2, thus Sylas player mostly takes large proportion of kills in team. And also this plot has some other infos, like outliers(with 100%)contribution, since we count assists as 0.2 kills, thus 1 implies all kills are concentrated in Sylas player only in that match. 
 
 Does that means that match sylas plays really well and carries the team? Apparently not, Since mostly winning games ends with each player having at least some kills and contributions, that implies the team advantage is large enough where everyone has a chance to get a kill. But for the 100% contribution kills in this case, mostly it implies that the team has only 1 to 2 kills in total, and all kills are done by Sylas, thus it doesn't give any useful infos to represents Sylas carries the team, but saying Sylas at least kill someone in that match.
