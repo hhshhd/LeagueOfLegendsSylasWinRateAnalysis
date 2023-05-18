@@ -38,8 +38,8 @@ The raw dataset has 149400 rows in total, I will choose ['gameid', 'position', '
 
 
 
-| Syntax | Description |
+| Column_Name | Description |
 | ----------- | ----------- |
-| Header | Title |
+| 'gameid | the id of each game/match. Each 'gameid' corresponds to up to 12 rows – one for each of the 5 players on both teams and 2 containing summary data for the two teams. |
 | Paragraph | Text |
 
