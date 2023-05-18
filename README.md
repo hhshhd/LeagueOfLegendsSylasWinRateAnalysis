@@ -10,34 +10,6 @@ So my question is: **Does best Sylas players and remained Sylas players have sim
 
 The raw dataset has 149400 rows in total, I will choose ['gameid', 'position', 'playername', 'playerid', 'teamid', 'champion', 'result', 'kills', 'deaths', 'assists',  'teamkills', 'teamdeaths', 'golddiffat15'] as my columns relevant to my question.
 
-'gameid': the id of each game/match. Each 'gameid' corresponds to up to 12 rows – one for each of the 5 players on both teams and 2 containing summary data for the two teams.
-
-| 'position' | the role of the player in each match (top,jng, mid, bot, sup) |
-
-| 'playername' | the name of the player |
-
-| 'playerid' | the id of the player |
-
-| 'teamid' | the id of the team |
-
-| 'champion' | the hero the player selected of that match |
-
-| 'result' | WIN/LOSE (1 represents win in raw data) |
-
-| 'kills' | number of kills in the match |
-
-| 'deaths' | number of deaths in the match |
-
-| 'assists' | number of assists(contribution in kills but not the killer) in the match |
-
-| 'teamkills' | number of total kills of the team in the match |
-
-| 'teamdeaths' | number of total deaths of the team in the match |
-
-| 'golddiffat15' | Average gold difference at 15 minutes |
-
-
-
 | Column_Name | Description |
 | ----------- | ----------- |
 | 'gameid | the id of each game/match. Each 'gameid' corresponds to up to 12 rows – one for each of the 5 players on both teams and 2 containing summary data for the two teams. |
