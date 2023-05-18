@@ -51,7 +51,7 @@ At the end, we will replace the value in column "result" from 0/1 to boolean, si
 
 First lets see the distribution of kills contribution of Sylas in all matches.
 
-
+<iframe src="assets/Univariate Analysis-1.html" width=800 height=600 frameBorder=0></iframe>
 
 This histogram shows the distribution of KillsTeamContribution column from the dataset. The trend from this histogram shows that the shape of Sylas kills contribution is likely a normal distribution, and most data concentrated in the range 0.3 to 0.5. Since a game consists only 5 players, averagely each players contributes 0.2, thus Sylas player mostly takes large proportion of kills in team. And also this plot has some other infos, like outliers(with 100%)contribution, since we count assists as 0.2 kills, thus 1 implies all kills are concentrated in Sylas player only in that match. 
 
