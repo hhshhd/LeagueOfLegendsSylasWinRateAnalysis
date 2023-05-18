@@ -38,8 +38,8 @@ The raw dataset has 149400 rows in total, I will choose ['gameid', 'position', '
 
 
 
-
+| Syntax | Description |
+| ----------- | ----------- |
 | Header | Title |
 | Paragraph | Text |
-
 
