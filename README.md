@@ -46,3 +46,15 @@ At the end, we will replace the value in column "result" from 0/1 to boolean, si
 | NA1_4173580606        | jng        | CptShrimps   | oe:player:df4f91120caa080682bf595c5f7f2d3 | oe:team:ea04c2731d4cce306a17d765544e7e9 | Sylas      | Lose     |       3 |        3 |         5 |          11 |           19 |           -319 |                0.363636 |                 0.157895 |
 | NA1_4173570661        | mid        | Diomarr      | oe:player:39f3a788b5909c17ee05ed45d8343b2 | oe:team:bedeb2d8da4a388b246a256c9da7957 | Sylas      | Lose     |       4 |        4 |         4 |          10 |           20 |           -759 |                0.48     |                 0.2      |
 | NA1_4173481965        | mid        | Radar        | oe:player:bbaf1416538fd783e597b64ef99043e | oe:team:d7ec1f968a609382e6e6d1bc2f6e4c3 | Sylas      | Lose     |      10 |        5 |        13 |          33 |           24 |            769 |                0.381818 |                 0.208333 |
+
+#### Univariate Analysis
+
+First lets see the distribution of kills contribution of Sylas in all matches.
+
+
+
+This histogram shows the distribution of KillsTeamContribution column from the dataset. The trend from this histogram shows that the shape of Sylas kills contribution is likely a normal distribution, and most data concentrated in the range 0.3 to 0.5. Since a game consists only 5 players, averagely each players contributes 0.2, thus Sylas player mostly takes large proportion of kills in team. And also this plot has some other infos, like outliers(with 100%)contribution, since we count assists as 0.2 kills, thus 1 implies all kills are concentrated in Sylas player only in that match. 
+
+Does that means that match sylas plays really well and carries the team? Apparently not, Since mostly winning games ends with each player having at least some kills and contributions, that implies the team advantage is large enough where everyone has a chance to get a kill. But for the 100% contribution kills in this case, mostly it implies that the team has only 1 to 2 kills in total, and all kills are done by Sylas, thus it doesn't give any useful infos to represents Sylas carries the team, but saying Sylas at least kill someone in that match.
+
+
