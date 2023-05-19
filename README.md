@@ -164,8 +164,39 @@ To measure the "distance" between two categorical distributions, we use the tota
 <iframe src="assets/Missingness-2.html" width=800 height=600 frameBorder=0></iframe>
 
 `np.mean(np.array(tvds) >= observed_tvd)`
+
 By calculating we get the p value as 1.0 . We fail to reject the null.
 
 Recall, the null stated that the distribution of 'side' when 'monsterkillsownjungle_missing' is missing is the same as the distribution of 'side' when 'monsterkillsownjungle_missing' is not missing.
 
 **Hence, we conclude that the missingness in the 'monsterkillsownjungle_missing' column is not dependent on 'side'.**
+
+Then lets compare null and non-null 'monsterkillsownjungle' distributions for 'league'
+
+|   monsterkillsownjungle_missing = False |   monsterkillsownjungle_missing = True |
+|----------------------------------------:|---------------------------------------:|
+|                             nan         |                             0.0229505  |
+|                             nan         |                             0.0204005  |
+|                             nan         |                             0.0068946  |
+|                             nan         |                             0.00245561 |
+|                               0.0413534 |                           nan          |
+
+
+<iframe src="assets/Missingness-3.html" width=800 height=600 frameBorder=0></iframe>
+
+Among these columns, we can obviously findWe can see from the plot that a few leagues are very sensitive to the missingness of junglekill. that only limited numbers of leagues are mainly
+
+To measure the "distance" between several categorical distributions, we use the total variation distance. By applying permutation testing to run 500 shuffled samples, empirical distribution of the test statistic along with the observed statistic is shown below.
+
+<iframe src="assets/Missingness-4.html" width=800 height=600 frameBorder=0></iframe>
+
+`observed_tvd = league_dist.diff(axis=1).iloc[:, -1].abs().sum() / 2`
+
+By calculating we get the p value as 0.2711422797102855. We reject the null.
+
+Recall, the null stated that the distribution of 'league' when 'monsterkillsownjungle_missing' is missing is the same as the distribution of 'league' when 'monsterkillsownjungle_missing' is not missing.
+
+**Hence, we conclude that the missingness in the 'monsterkillsownjungle_missing' column is dependent on 'league'.**
+
+### Hypothesis Testing
+
