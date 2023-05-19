@@ -200,3 +200,60 @@ Recall, the null stated that the distribution of 'league' when 'monsterkillsownj
 
 ### Hypothesis Testing
 
+Now we are back to our question, who is the best sylas player in 2022 matches? Since for this questions, winning rate can easily become the numerical representation of player's performance, so we can say that the top 25% winning rate would become best sylas player. 
+
+Then We create two new columns, 'Best' represents boolean value of whether the player is the best, 'Diff' represents the difference in Kills Team Contribution and Deaths Team Contribution.
+
+| Best   |        Diff |
+|:-------|------------:|
+| True   |  0.16631    |
+| False  | -0.00699346 |
+| True   |  0.0181818  |
+| True   |  0.281818   |
+| True   |  0.177778   |
+
+Then lets look at the exploratory analysis of the data and its visualization.
+
+|     mean |   count |
+|---------:|--------:|
+| 0.128805 |     433 |
+| 0.115274 |     144 |
+
+<iframe src="assets/Hypothesis-1.html" width=800 height=600 frameBorder=0></iframe>
+
+Since our question is that: Does best Sylas players and remained Sylas players have similar distribution of difference in Kills contributions and Deaths Contributions? We have a two samples and are consdier whether they are drawn from the same population. Thus we should apply permutation testing in this case. 
+
+Null Hypothesis: In 2022 matches, the distribution of difference in Kills and Deaths Team Contribution among those who are top 25% is the same as among those who are NOT Top 25% pro players.
+
+Alternative Hypothesis: In 2022 matches, the distribution of these two groups in Kills and Deaths Team Contribution are different.
+
+For the choice of test statistic, We need one that can measure how different two numerical distributions are, so I choose difference in group means as our test statistic.
+
+Thus we got our observed statistic below.
+
+`observed_difference = -0.013531175277358004`
+
+For significane level, I'll choose one of common used one, 5%, as the the probability, under the null hypothesis, that the test statistic is equal to the value that was observed in the data or is even further in the direction of the alternative.
+
+Lets run our permutation test.
+
+After 500 shuffled samples, we get a list of 500 differences. here is randomly selected 10 of them as shown below.
+
+`[0.005012848948314455,
+ 0.0007250083385850481,
+ -0.004606296968549722,
+ -0.01254582544763072,
+ -0.004475722833128942,
+ 0.0006263420906117145,
+ -0.02060701466381462,
+ 0.018798667174356007,
+ 0.016003001868274802,
+ 0.006432248174125327]`
+ 
+ Empirical distribution of the test statistic along with the observed statistic is shown below.
+ 
+ <iframe src="assets/Hypothesis-2.html" width=800 height=600 frameBorder=0></iframe>
+ 
+ By looking at the graph and two lines(red represents observed stats and purple represents significance level of 5%, or by looking at the p_value = 0.838, thus we reject that the null hypothesis that the two groups come from the same distribution.
+ 
+ After all analysis, we can give our conclusion that, from the dataset was given, There is no exactly same distribution of difference in Kills contributions and Deaths Contributions between best Sylas players and remained Sylas players under 5% significance level.
