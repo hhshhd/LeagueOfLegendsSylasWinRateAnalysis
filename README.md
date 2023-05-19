@@ -1,4 +1,4 @@
-# DSC80 Project 3: Data Science behind LOL
+Data Science behind LOL
 **Name**: Housheng Hai
 
 this is a project analyzing hero "Sylas"'s winning rate in the game League of Legends for DSC 80 at UCSD
